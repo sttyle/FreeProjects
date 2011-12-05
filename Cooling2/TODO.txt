@@ -1,0 +1,80 @@
+﻿This list of bugs might be slightly incorrect due to changes in
+addon structure. If date is older than 2007-02-01 consider the bug
+information to be outdated.
+
+KNOWN BUGS
+----------
+2007-05-27 Suspected memory leak.
+This addon uses 3MB memory according to blizzard latency/fps/memory info. I
+feel this addon should not use that much memory, so I suspect minor memory
+leak or other crappy coding. 2006-06-03: Peak usage seem to be 5MB, but then
+again id drop below 1MB. This indicates normal behavior. But this will be
+observed and full checking on memory/list usage will be done.
+
+2007-02-16 Multiple faulty (small) global cooldowns.
+-->Will be observed, but very likely not be fixed.
+Some abilities trigger client side global cooldown and then wait acknowledge
+from the server. If for example server decides that your action is
+cancelled then the cooldown is reset, but this addon still shows it. You
+can cause this bug appear f.e. trying to instant cast target that is not in
+the line of sight. Or using item that require certain place to work. Also
+should appear in laggy situations when using melee special attacks.
+
+2007-01-24 Cooldown "shadow" hides the digital time text.
+-->Will be studied when i have time.
+Blizzard default Cooldown Frame Template is awkward for layouts and always
+places itself on top of the other artwork or frames. So far my attempts to
+place this frame between icon graphics and text have failed due to my lack
+of knowledge in frame/layout and xml code.
+
+2007-01-05 Weird cooldown values after crash.
+-->Will be observed, but propably not fixed.
+Sometimes when you are forced to disconnect (server/client crash, etc..)
+some items may be left on awkward cooldown state. As a result wrong cooldown
+time is shown (like 8379h on Gadgetzan teleporter). This feels like bug in
+game mechanism and since it is rather rare condition any workarounds will
+not be implemented.
+
+2006-12-06 Not showing cooldown of consumable if there is none.
+-->There is workaround/option.
+If automatic refresh is set on cooldown icons for consumable/conjurable
+items is not shown if there is not such an item in bag/inventory.
+F.e managem/healthstone/soulstone cooldown is not shown until new or similar
+items is conjured.
+
+2006-04-26 Multiple long cooldowns. Battlechicken bug
+-->There is workaround/option.
+Combat Harvester Reaper Kit causes other similar trinkets (battle chicken)
+to go on cooldown every time when harvester attacks. This is propably
+default and correct behavior. However since cooldown is reset it causes
+Cooling to add new icon for it and not to replace the old 1.
+As a result usage of harvester will flood trinket icons to cooldown display.
+This is minor bug since harvesters are always level 35 and therefore they
+are not normally used if better trinkets (battle chicken) are available.
+Twinks that impress/annoy other pvp players with these should set automatic
+refresh on.
+
+2006-04-12 Showing cooldowns that are reset by ability (Cold Snap).
+-->There is workaround/option.
+Some spells that finish cooldowns (f.e Cold Snap) does not cause
+referred cooldowns to disappear - Their icons are shown as if they are
+still on cooldown. Player with such a talent should use automatic refresh.
+
+
+PROPOSED FIXES of Cooling 1
+---------------------------
+2007-01-25 Teardroppixie
+Current layout of code and the basic principle how this add works can't
+fulfill all feature requests no longer. Therefore i'll put this version on
+hold - only blatant bugs are fixed and version number punched up. New more
+dynamic addon will be started.
+
+2007-01-24 Darceidus
+Option to disable pet/inventory/bags - Why i didn't done this already :)
+Option to track the long cooldowns, but show them only when they have short
+time left.
+New default layout (vertical).
+
+2006-11-21 Teardroppixie
+Different orders of the cooldown: Longest 1st (default), Shortest 1st
+and Centered.

@@ -1,0 +1,10 @@
+## Interface: 40000
+## Title: Cooling2
+## Author: Teardroppixie (updated by Jakkdan)
+## Version: 4.0.0
+## Notes: Shows abilities on cooldown as movable icons.  Updated version of Cooling2 to work with WoW 4.0.1
+## eMail: jakkdan.wow@gmail.com
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariablesPerCharacter: Cooling2_Config,Cooling2_Ruleset
+cooling2.xml

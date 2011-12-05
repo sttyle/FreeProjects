@@ -1,0 +1,243 @@
+﻿============================================================================
+COOLING 2 HOWTO
+        
+Copyright (C) 2005-2007 Kimmo Ter�v�inen
+============================================================================
+
+
+Abstract
+========
+        This document describes how to use Cooling 2 (beta) add-on for World
+        of Warcraft. It tries to be quick but also thorough guide.
+
+
+
+What Cooling 2 is and how it works in general?
+==============================================
+        Cooling 2 (beta) is add-on to show cooldowns in 15 configurable icons.
+        User has lot of freedom to configure how and what cooldowns are shown.
+        As a result beta version of this add-on is NOT FOR NOVICE USERS. User
+        must have time and patience to at least read this doc.
+        
+        Everytime when cooldowns chance this addon will go through all
+        abilities (=spells, items...) and compare if they match with rulesets
+        and then setup icons and scrolling combat text to show cooldowns.
+        
+        
+
+What is there by default?
+=========================
+        If you start Cooling 2 at the 1st time, you will be given 5 icon
+        groups: Group 1 is general ability cooldowns, Group 2 is item cooldowns
+        and there is 3 class dependant icons for special cooldowns and
+        counterspell detection. Also ability and item cooldowns trigger
+        Flowing/Scrolling combat text notification.
+        
+        Icons are placed in the middle of your screen, but depending on your
+        other UI settings and scale you might need to move them to better
+        positions.
+        
+
+
+General Slash commands
+======================
+
+    /cooling (or /cooldown or /cool)
+    
+        This is just handle command. It should react if cooling is installed
+        and does nothing except showing small reminder of available /slash
+        commands
+        
+        
+    /cooling setup
+    
+        This will cause cooling 2 to enter ICON SETUP MODE. Calling it again it
+        will exit icon setup mode and return normal operation mode. In this
+        mode user can move icons and modify icon groups. Moving icons are
+        obvious: Drag icons by keeping left mouse button pressed. If you drag
+        master icon of the group then all sequent icon that are in the same
+        group will move along.
+        
+        By clicking right mouse button you can toggle if icon will be master of
+        its icon group: Clicking master icon will make icon group to merge with
+        lower icon group. And clicking non-master icon will make it master icon
+        and create new icon group.
+        
+        Icons are numbered with 2 numbers in setup mode (like 9:2). First
+        number indicates the number of icon and latter indicates the icon group
+        it is part of. Icon number will be used f.e in scale and alpha command and
+        icon group number is used in rule sets.
+        
+        
+    /cooling refresh [on/off]
+
+        Without parameters this will clear all notification lists and icons,
+        and go through all abilities to check what is on cooldown. This is
+        recommended command if you know that icons are showing wrong or old
+        cooldowns. Use this after Cold Snap.
+        
+        If given with parameter then it toggle automatic refresh on/off. If set
+        "on" then lists and icons are completely cleared and recreated when
+        cooldowns change. Default setting is "off".
+        
+        
+    /cooling digital [button] [on/off] -- Toggle digital cooldown display.
+    /cooling shadow [button] [on/off] -- Toggle clockvise cooldown shadow frame.
+    /cooling alpha [button] [num] -- Set transparency 0.0 .. 1.0.
+    /cooling scale [button] [num] -- Set scaling - suggested values 0.5 .. 2.0.
+    
+        These 4 commands will modify individual icon settings: "digital" will
+        toggle number display on/off, "shadow" will toggle clockwise shadow
+        on/off, "alpha" modifies transparency and "scale" modifies size of the
+        icon.
+        
+        Alpha values means next: 0=invisible, 0.5=half transparent, 1=opaque.
+        Scaling values: 0.5=half size, 1=normal size, 2=double size
+        
+        
+    /cooling copy <character>
+    
+        With this command you can copy icon settings (icon group, position,
+        scale, alpha) from another character you play.
+        
+        
+    /cooling reset <layout>
+    
+        This command will reset icon position, groups, scale and alpha. When
+        writing this doc there was 2 layouts available: 0=unsable setting, but
+        visible setting, 1=icons in middle.
+        
+        
+    /cooling rule
+    
+        This is command set to edit rule sets. By calling "/cooling rule" will
+        output small reminder of the rule set commands. Usage of this command
+        is explained later in this HOWTO.
+        
+
+Rulesets
+========
+
+    Overview (picture)
+    
+        abilities => rule match test => cooldown lists => sct/fct 
+        items     =>                 =>                => icons
+
+    Principle
+
+        Fundamental principle how this add-on works is the next: When cooldowns
+        change, update event of this add-on is triggered. All abilities are then
+        checked against rules and if ability match the rule then it is
+        attempted to add into target cooldown list. If list already contains
+        cooldown with exactly the same duration (and end time) then ability is
+        ignored.
+        
+        Rules have SOURCE, TARGET, NUM, MIN, MAX and MATCH.
+        
+        Cooldown lists are periodically checked and scrolling combat text
+        notifications and icons are periodically formed from them to provide
+        graphics and animation. Currently cooldown lists is always ordered
+        so that longest is 1st and shortest is last.
+        
+
+    Rule SOURCE
+    
+        SOURCE is group (or type) of ability to test. Next sources are
+        supported:
+        
+            0=general page (in spell book)
+            1=1st ability page (in spell book)
+            2=2nd ability page (in spell book)
+            3=3rd ability page (in spell book)
+            4=pet abilities (in pet spell book)
+            5=equipment (items you wear)
+            6=containers (items in your bags)
+
+                
+    Rule TARGET
+    
+        TARGET defines the cooldown list where ability should be placed if it
+        matches. Next choices are available:
+    
+    	    0=scrolling combat text (or floating combat text)
+    	    1=icon group 1
+    	    2=icon group 2
+    	    etc...
+
+    	    	
+    Rule NUM
+    
+        NUM is order of rule. Currently no real meaning except when inserting
+        or deleting rules.
+        
+        
+    Rule MIN
+    
+        MIN is minimum duration. To match the rule ability duration must be
+        longer than MIN.
+        
+        
+    Rule MAX
+    
+        Maximum duration of cooldown. To match the rule ability duration must
+        be shorter or the same than MAX.
+        
+        
+    Rule MATCH
+    
+        Text that ability must match. If MATCH is found in ability name then
+        rule matches. If MATCH is empty then any ability will match the rule.
+        
+        
+Rule set /slash commads and editing
+-----------------------------------
+
+    /cooling rule
+    
+        Small reminder how to use rules.
+    
+            
+    /cooling rule list
+    
+        Lists rules
+        
+        
+    /cooling rule reset
+    
+        Resets rules to default setting. Default settings vary a little
+        depending on the class of the player.
+        
+        
+    /cooling rule clear
+    
+        Clears the rules. Handy if you want to build your rules from the
+        scratch.
+        
+        
+    /cooling rule ins <source> <target> <num> <min> <max> <match>
+    
+        Insert new rule into rulesets.
+        
+        
+    /cooling rule del <source> <target> <num>
+    
+        Delete rule from rulesets.
+        
+
+History, Bugs and Limitations
+=============================
+
+	In the beginning there was not a decent cooldown add-on. Some had exactly the
+	display I wanted, some had too many unworkable features. Therefore Cooling
+	was born.
+	
+	Cooling 1 is still available since it is practically perfect: 12 icons that
+	simply show all abilities and items that are on cooldown in ordered list.
+	User can move icons, but in general controls over what or how to see cooldowns
+	was limited.
+
+	Cooling 2 is advanced version of the classic cooling. Reason why to make such
+	an addon was to allow some users to tweak cooldowns what they want to see. As
+	a result this addon isn't and practically can't be perfect. There will be always
+	players that are not capable to use it nor capable to even follow instructions
+	how to setup it.

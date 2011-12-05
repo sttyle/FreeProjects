@@ -1,0 +1,176 @@
+﻿-------------------------------------------------------------------
+Cooling2 Change Log
+-------------------------------------------------------------------
+2010-11-11 Jakkdan
+Updated to work with WoW version 4.0.1
+Added default rules for Death Knights
+
+2008-03-26 Teardroppixie
+Punched up WoW version number (20400)
+No longer spawn lua error if user has sct/fct notifications enabled,
+but either of them in use.
+
+2007-12-11 Teardroppixie
+Fixed a bug in "/cooling rule clear" command.
+SPANKME: Never add even simple features without testing.
+
+2007-11-04 Teardroppixie
+Punched up version number (20300) for WoW 2.3.0.
+Added "/cooling rule clear" command.
+
+2007-10-26 Teardroppixie
+Edited default rulesets: By default cooldowns shorter than 2.5s are not shown.
+Edited default icon positions: "/cooling reset 1" should be usable for most
+users, "/cooling reset 0" is backup if icons still are not visible.
+
+2007-09-26 Teardroppixie
+Punch up version number (20200) for WoW 2.2
+
+2007-07-04 Teardroppixie
+Slash commands are now case sensitive - fixes the rule match misfeature.
+Fixed many lua errors related to rulesets.
+
+2007-07-01 Teardroppixie
+2007-06-24 Teardroppixie
+Improved movement of frames (part 2).
+Preparation for user controlled group setting.
+Anchoring of icons is now configurable at code level.
+
+2007-05-28 Teardroppixie
+Improved movement of frames.
+
+2007-05-27 Teardroppixie
+Added support for standard Floating Combat Text, that is used if Scrolling
+Combat Text is not installed.
+  
+2007-05-24 Teardroppixie
+Overal fixes (reset command, etc...).
+Punch up version number (20100) for WoW 2.1.
+
+2007-02-06 Teardroppixie
+Overal fixes, default rulesets for few classes (druid, priest, mage, warlock).
+
+2007-02-01 Teardroppixie
+Added 3 more icons (for mage counterspell detection template) and ofc rules
+for that.
+
+2007-01-31 Teardroppixie
+To avoid carbage collection (object deletation) lag active cooldown list
+objects are never "nil":led - they are just reused when needed.
+Added /slash options to edit rulesets ingame.
+
+2007-01-30 Teardroppixie
+Pet cooldowns are ignored if they are set autocast.
+
+2007-01-29 Teardroppixie
+Whole new ruleset based system with several target icon groups.
+
+2007-01-26 Teardroppixie
+Started Cooling2 (RESUME DEVELOPING)
+Now scale,shadow and digital settings are icon oriented.
+
+2007-01-25 Teardroppixie
+  Added options to toggle general/pet/equipment/bag cooldowns.
+  Pet cooldowns are off by default. Other cooldowns are on by default.
+  DEVELOPING OF THIS ADD IS FREEZED in order to produce better
+  cooldown addon.
+
+2007-01-24 Teardroppixie
+  Added option to turn shadow on/off. Changed functionality of digital
+  option.
+
+2007-01-15 Teardroppixie
+  Fixed sct option that was totally broken. Didn't evaluated timer at all.
+
+2007-01-13 Teardroppixie
+  Punch up version 20004
+
+2007-01-11 Teardroppixie
+  No longer checking of SCT on player entering world.
+  (Maybe fixes bug 2007-01-10)
+
+2007-01-10 Teardroppixie
+  Punch up version 20003 (burning crusade prepatch)
+  New template model for cooldown timers -> slight change in xml code.
+  Added crude option to control Scrolling Combat text notification.
+  BUG: causes sct lua error on startup (occasionally)
+
+2006-12-24-beta Teardroppixie & Layla
+  Added BETA Scrolling Combat Text (SCT) tweaks (thanks to Layla).
+  Now shows notification when longer than 3s cooldowns end.
+
+2006-12-20 Teardroppixie
+  Alpha and scale options.
+
+2006-12-16 Teardroppixie
+  Improved drag&move system for icons - Anchoring and smooth dragging.
+  New default layouts.
+  Now only Cooling.xml bases on the original code of Marc.
+  Other code is Copyright Kimmo Ter�v�inen.
+
+2006-12-06 Teardroppixie
+  Popped up version number.
+
+2006-12-03 Teardroppixie
+  Option or force refresh on every cooldown change event.
+  (workaround to fix bug with coldsnap (talent) and some trinkets)
+
+2006-11-21 Teardroppixie
+  Dropped tracking of trade cooldowns - They are not scope of this addon.
+  Added options for minimun time and maximum time.
+
+2006-08-23 Teardroppixie
+  Version number update - WoW patch 1.12.
+
+2006-07-07 Teardroppixie
+  Added default layout 2. Added pet cooldowns. TOC-file now has version string
+
+2006-07-04 Teardroppixie
+  Improved reset command. Now user must specify layout. No more accidental
+  setup of display position when user intends to just refresh.
+
+2006-06-21 Teardroppixie
+  Punched version up due to WoW upgrade.
+
+2006-04-27 Teardroppixie
+  Changed the number display. Now shows decimal seconds when less than 2
+  seconds time left.
+
+2006-04-12 Teardroppixie
+  Added trade skill cooldowns (like mooncloth).
+  Added option to switch tradeskill cooldown on/off. Default OFF.
+  If cooldown is longer than 100 minutes it is shown as hours.
+
+2006-04-05 Teardroppixie
+  New button locations (just above channeling bar).
+
+2006-03-26 Teardroppixie
+  Fixed bug: Called nil function (/cool setup)
+
+2006-03-24 Teardroppixie
+  Changed the time display: Now uses ceiling instead of floor.
+
+2006-03-18 Teardroppixie
+  Minor cleanup
+  Added /cooling refresh slash command
+
+2006-03-17 Teardroppixie
+  Fix: Rebuild entire cooldown list when entering the world
+  Removed some unused event handlers.
+  New default locations
+
+2006-03-15 Teardroppixie
+  Heavy clean up of vain code.
+
+2006-03-14 Teardroppixie
+  Fixed a bug that caused wrong order and possible extraneous cooldowns.
+  Added inventory cooldowns
+  Added bag cooldowns
+
+2006-03-13 Teardroppixie
+  1st (somehow) workable version (spellbook only)
+
+2006-03-06 Teardroppixie
+  Took original CooldownHud code of Marc and heavily edited it to suit my purposes
+  Removed previous history entries
+
