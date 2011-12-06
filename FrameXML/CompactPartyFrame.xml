@@ -1,0 +1,14 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="CompactPartyFrame.lua"/>
+	<Frame name="CompactPartyFrame" clampedToScreen="true" inherits="CompactRaidGroupTemplate" parent="UIParent" movable="true">
+		<Scripts>
+			<OnLoad>
+				CompactPartyFrame_OnLoad(self);
+			</OnLoad>
+			<OnEvent>
+				CompactPartyFrame_OnEvent(self, event, ...);
+			</OnEvent>
+		</Scripts>
+	</Frame>
+</Ui>
